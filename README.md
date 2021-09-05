@@ -5,7 +5,7 @@ A little Python script to convert your youtube videos and playlist into `.flac` 
 # Install
 
 
-### Requirements
+## Requirements
 
 - It is based on ![python badge](https://img.shields.io/badge/python-3.7-blue "python badge") or earlier -> [Download here](https://www.python.org/downloads/)
 - It requires ![pip badge](https://img.shields.io/badge/pip-21.1-green "pip badge") -> check the box `pip` when installing `Python`
@@ -17,7 +17,7 @@ Approximate size for a 3-4min music video : 50 MB (10x more than `.mp3`)
 When everything is ready to use, the script will automatically update `pip` and `youtube-dl`
 
 
-### Usage
+## Usage
 
 On windows, just double click on `YouTube to flac.bat` to launch the script.
 Otherwise, launch the `ytb_flac.py` with python (`python ytb_flac.py`)
@@ -45,5 +45,5 @@ After that, the download begins...
 
 And... your music/playlist is downloaded !
 
-### Participate
+## Participate
 It is a pretty light script, but every changes are welcome ! Don't hesitate :)

@@ -1,4 +1,4 @@
-# youtube-to-flac-converter
+# YouTube to flac music converter
 
 A little Python script to convert your youtube videos and playlist into `.flac` audio files, without any compression (contrary to `.mp3` files)
 

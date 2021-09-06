@@ -10,7 +10,7 @@ A little Python script to convert your youtube videos and playlist into `.flac` 
 - It is based on ![python badge](https://img.shields.io/badge/python-3.7-blue "python badge") or earlier -> [Download here](https://www.python.org/downloads/)
 - It requires ![pip badge](https://img.shields.io/badge/pip-21.1-green "pip badge") -> check the box `pip` when installing `Python`
 - It also requires ![ffmpeg badge](https://img.shields.io/badge/ffmpeg-4.3.1-orange "ffmpeg badge") or earlier -> [Download here](https://ffmpeg.org/download.html)
-- Last but not least, ![youtube-dl badge](https://img.shields.io/badge/youtube--dl-2021.06.06-red "youtube-dl badge") or earlier -> write this command in Powershell/CMD : `pip install --upgrade youtube-dl`
+- Last but not least, ![youtube-dl badge](https://img.shields.io/badge/youtube--dl-2021.06.06-red "youtube-dl badge") or earlier -> write this command in Powershell/CMD : `pip install youtube-dl`
 
 Approximate size for a 3-4min music video : 50 MB (10x more than `.mp3`)
 

@@ -14,12 +14,12 @@ while not stop:
     firstTry = True
     while link[0:7] != "https://" and "youtu" not in link:
         if not firstTry:
-            print("Enter a true youtube link (https://youtube.com/... or https://youtu.be/...)\n")
+            print(
+                "Enter a true youtube link (https://youtube.com/... or https://youtu.be/...)\n")
         link = input("Enter youtube link (video or playlist) -> ")
         if link == "exit":
             quit()
         firstTry = False
-
 
     file_directories = open("directories.txt", "r+")
     directories = file_directories.readlines()
@@ -29,7 +29,7 @@ while not stop:
     if len(directories) > 0:
         firstTry = True
         print("\nChose a location to download in...\n")
-        
+
         while choice <= 0 or choice > len(directories) + 1:
             if not firstTry:
                 print("\nEnter a good number\n")
@@ -47,7 +47,6 @@ while not stop:
                     quit()
                 print("\nEnter only a number\n")
                 firstTry = True
-
 
     if len(directories) == 0 or choice == len(directories) + 1:
         path = input("New directory (ex : C:/Music) -> ")
@@ -68,7 +67,6 @@ while not stop:
 
     path += input("\nEnter directory location name (empty if in this directory) -> ")
 
-
     choice = 0
     while choice != 1 and choice != 2:
         print("Choose music format :")
@@ -76,10 +74,10 @@ while not stop:
         choice = int(input("Your choice -> "))
         if choice != 1 and choice != 2:
             print("Enter correct number")
-        elif choice == 1 :
+        elif choice == 1:
             print("Music format set on flac")
         else:
-            print("Music format set on mp3")    
+            print("Music format set on mp3")
 
     if choice == 1:
         ydl_opts = {
@@ -114,8 +112,6 @@ while not stop:
 
     except:
         print("\nAn error occured. Check if the directory or the link is good.\n")
-
-    
 
     choice = input("\nDo you wanna continue downloading ? (y/n) -> ")
 

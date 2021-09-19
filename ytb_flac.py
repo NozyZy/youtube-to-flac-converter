@@ -68,16 +68,39 @@ while not stop:
 
     path += input("\nEnter directory location name (empty if in this directory) -> ")
 
-    ydl_opts = {
-        'format': 'bestaudio/best',
-        'postprocessors': [{
-            'key': 'FFmpegExtractAudio',
-            'preferredcodec': 'flac',
-            'preferredquality': '192',
-        }],
-        'outtmpl': path + '/%(title)s.%(ext)s',
-    }
 
+    choice = 0
+    while choice != 1 and choice != 2:
+        print("Choose music format :")
+        print("1. Flac\n2. Mp3")
+        choice = int(input("Your choice -> "))
+        if choice != 1 and choice != 2:
+            print("Enter correct number")
+        elif choice == 1 :
+            print("Music format set on flac")
+        else:
+            print("Music format set on mp3")    
+
+    if choice == 1:
+        ydl_opts = {
+            'format': 'bestaudio/best',
+            'postprocessors': [{
+                'key': 'FFmpegExtractAudio',
+                'preferredcodec': 'flac',
+                'preferredquality': '192',
+            }],
+            'outtmpl': path + '/%(title)s.%(ext)s',
+        }
+    else:
+        ydl_opts = {
+            'format': 'bestaudio/best',
+            'postprocessors': [{
+                'key': 'FFmpegExtractAudio',
+                'preferredcodec': 'mp3',
+                'preferredquality': '192',
+            }],
+            'outtmpl': path + '/%(title)s.%(ext)s',
+        }
     print("Downloading... -> ", link)
 
     try:

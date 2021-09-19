@@ -67,7 +67,8 @@ while not stop:
     else:
         path = directories[choice - 1].replace("\n", "")
 
-    path += input("\nEnter directory location name (empty if in this directory) -> ")
+    path += input(
+        "\nEnter directory location name (empty if in this directory) -> ")
 
     choice = 0
     while choice != 1 and choice != 2:
@@ -83,27 +84,27 @@ while not stop:
 
     if choice == 1:
         ydl_opts = {
-            "format": "bestaudio/best",
-            "postprocessors": [
-                {
-                    "key": "FFmpegExtractAudio",
-                    "preferredcodec": "flac",
-                    "preferredquality": "192",
-                }
-            ],
-            "outtmpl": path + "/%(title)s.%(ext)s",
+            "format":
+            "bestaudio/best",
+            "postprocessors": [{
+                "key": "FFmpegExtractAudio",
+                "preferredcodec": "flac",
+                "preferredquality": "192",
+            }],
+            "outtmpl":
+            path + "/%(title)s.%(ext)s",
         }
     else:
         ydl_opts = {
-            "format": "bestaudio/best",
-            "postprocessors": [
-                {
-                    "key": "FFmpegExtractAudio",
-                    "preferredcodec": "mp3",
-                    "preferredquality": "192",
-                }
-            ],
-            "outtmpl": path + "/%(title)s.%(ext)s",
+            "format":
+            "bestaudio/best",
+            "postprocessors": [{
+                "key": "FFmpegExtractAudio",
+                "preferredcodec": "mp3",
+                "preferredquality": "192",
+            }],
+            "outtmpl":
+            path + "/%(title)s.%(ext)s",
         }
     print("Downloading... -> ", link)
 
@@ -117,7 +118,9 @@ while not stop:
         file_directories.close()
 
     except:
-        print("\nAn error occured. Check if the directory or the link is good.\n")
+        print(
+            "\nAn error occured. Check if the directory or the link is good.\n"
+        )
 
     choice = input("\nDo you wanna continue downloading ? (y/n) -> ")
 

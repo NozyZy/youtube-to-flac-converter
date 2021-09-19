@@ -15,7 +15,8 @@ while not stop:
     while link[0:7] != "https://" and "youtu" not in link:
         if not firstTry:
             print(
-                "Enter a true youtube link (https://youtube.com/... or https://youtu.be/...)\n")
+                "Enter a true youtube link (https://youtube.com/... or https://youtu.be/...)\n"
+            )
         link = input("Enter youtube link (video or playlist) -> ")
         if link == "exit":
             quit()
@@ -81,23 +82,27 @@ while not stop:
 
     if choice == 1:
         ydl_opts = {
-            'format': 'bestaudio/best',
-            'postprocessors': [{
-                'key': 'FFmpegExtractAudio',
-                'preferredcodec': 'flac',
-                'preferredquality': '192',
-            }],
-            'outtmpl': path + '/%(title)s.%(ext)s',
+            "format": "bestaudio/best",
+            "postprocessors": [
+                {
+                    "key": "FFmpegExtractAudio",
+                    "preferredcodec": "flac",
+                    "preferredquality": "192",
+                }
+            ],
+            "outtmpl": path + "/%(title)s.%(ext)s",
         }
     else:
         ydl_opts = {
-            'format': 'bestaudio/best',
-            'postprocessors': [{
-                'key': 'FFmpegExtractAudio',
-                'preferredcodec': 'mp3',
-                'preferredquality': '192',
-            }],
-            'outtmpl': path + '/%(title)s.%(ext)s',
+            "format": "bestaudio/best",
+            "postprocessors": [
+                {
+                    "key": "FFmpegExtractAudio",
+                    "preferredcodec": "mp3",
+                    "preferredquality": "192",
+                }
+            ],
+            "outtmpl": path + "/%(title)s.%(ext)s",
         }
     print("Downloading... -> ", link)
 

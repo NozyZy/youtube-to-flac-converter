@@ -1,4 +1,5 @@
 import os
+
 import youtube_dl
 
 print("Downloading new pip and youtube_dl...\n")
@@ -14,12 +15,13 @@ while not stop:
     firstTry = True
     while link[0:7] != "https://" and "youtu" not in link:
         if not firstTry:
-            print("Enter a true youtube link (https://youtube.com/... or https://youtu.be/...)\n")
+            print(
+                "Enter a true youtube link (https://youtube.com/... or https://youtu.be/...)\n"
+            )
         link = input("Enter youtube link (video or playlist) -> ")
         if link == "exit":
             quit()
         firstTry = False
-
 
     file_directories = open("directories.txt", "r+")
     directories = file_directories.readlines()
@@ -29,7 +31,7 @@ while not stop:
     if len(directories) > 0:
         firstTry = True
         print("\nChose a location to download in...\n")
-        
+
         while choice <= 0 or choice > len(directories) + 1:
             if not firstTry:
                 print("\nEnter a good number\n")
@@ -48,7 +50,6 @@ while not stop:
                 print("\nEnter only a number\n")
                 firstTry = True
 
-
     if len(directories) == 0 or choice == len(directories) + 1:
         path = input("New directory (ex : C:/Music) -> ")
 
@@ -66,18 +67,45 @@ while not stop:
     else:
         path = directories[choice - 1].replace("\n", "")
 
-    path += input("\nEnter directory location name (empty if in this directory) -> ")
+    path += input(
+        "\nEnter directory location name (empty if in this directory) -> ")
 
-    ydl_opts = {
-        'format': 'bestaudio/best',
-        'postprocessors': [{
-            'key': 'FFmpegExtractAudio',
-            'preferredcodec': 'flac',
-            'preferredquality': '192',
-        }],
-        'outtmpl': path + '/%(title)s.%(ext)s',
-    }
+    choice = 0
+    while choice != 1 and choice != 2:
+        print("Choose music format :")
+        print("1. Flac\n2. Mp3")
+        choice = int(input("Your choice -> "))
+        if choice != 1 and choice != 2:
+            print("Enter correct number")
+        elif choice == 1:
+            print("Music format set on flac")
+        else:
+            print("Music format set on mp3")
 
+    if choice == 1:
+        ydl_opts = {
+            "format":
+            "bestaudio/best",
+            "postprocessors": [{
+                "key": "FFmpegExtractAudio",
+                "preferredcodec": "flac",
+                "preferredquality": "192",
+            }],
+            "outtmpl":
+            path + "/%(title)s.%(ext)s",
+        }
+    else:
+        ydl_opts = {
+            "format":
+            "bestaudio/best",
+            "postprocessors": [{
+                "key": "FFmpegExtractAudio",
+                "preferredcodec": "mp3",
+                "preferredquality": "192",
+            }],
+            "outtmpl":
+            path + "/%(title)s.%(ext)s",
+        }
     print("Downloading... -> ", link)
 
     try:
@@ -90,9 +118,9 @@ while not stop:
         file_directories.close()
 
     except:
-        print("\nAn error occured. Check if the directory or the link is good.\n")
-
-    
+        print(
+            "\nAn error occured. Check if the directory or the link is good.\n"
+        )
 
     choice = input("\nDo you wanna continue downloading ? (y/n) -> ")
 

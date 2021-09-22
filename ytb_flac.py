@@ -52,7 +52,12 @@ while not stop:
     if len(directories) == 0 or choice == len(directories) + 1:
         path = input("New directory (ex : C:/Music) -> ")
 
-        if path[-1] != "/" and path[-1] != "\\":
+        path.replace("\\", "/")
+
+        if path[1:2] != ":/":
+            path = "C:/" + path
+
+        if path[-1] != "/":
             path += "/"
 
         double = False
@@ -67,6 +72,10 @@ while not stop:
         path = directories[choice - 1].replace("\n", "")
 
     path += input("\nEnter directory location name (empty if in this directory) -> ")
+    
+    if path[0] != "/":
+        path = "/" + path
+    path.replace("\\", "/")
 
     ydl_opts = {
         'format': 'bestaudio/best',
@@ -82,6 +91,7 @@ while not stop:
 
     try:
         with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+            print("\033[92m----------------------\033[00m")
             ydl.download([link])
 
         file_directories = open("directories.txt", "w+")

@@ -80,7 +80,7 @@ while not stop:
     if directory == "exit":
         quit()
 
-    elif directory[0] != "/":
+    elif len(directory) != 0 and directory[0] != "/":
         directory = "/" + directory
     directory.replace("\\", "/")
 

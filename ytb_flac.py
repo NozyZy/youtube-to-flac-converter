@@ -1,4 +1,5 @@
 import os
+
 import youtube_dl
 
 # Downloading new versions of the packages
@@ -75,12 +76,13 @@ while not stop:
         path = directories[choice - 1].replace("\n", "")
 
     # new directory
-    directory = input("\nEnter directory location name (empty if in this directory) -> ")
+    directory = input(
+        "\nEnter directory location name (empty if in this directory) -> ")
 
     if directory == "exit":
         quit()
 
-    elif directory[0] != "/":
+    elif len(directory) != 0 and directory[0] != "/":
         directory = "/" + directory
     directory.replace("\\", "/")
 
@@ -91,7 +93,9 @@ while not stop:
     song_formats = ["flac", "mp3"]
     while not 0 < choice < len(song_formats) + 1:
         print("Choose music song format :")
-        print("\n".join(str(i + 1) + " -> " + song_formats[i] for i in range(len(song_formats))))
+        print("\n".join(
+            str(i + 1) + " -> " + song_formats[i]
+            for i in range(len(song_formats))))
         choice = int(input("Your choice -> "))
         if not 0 < choice < len(song_formats) + 1:
             print("\nERROR - Enter correct number !\n")
@@ -121,9 +125,7 @@ while not stop:
         file_directories.close()
 
     except:
-        print(
-            "\nERROR - Check if the directory or the link is good.\n"
-        )
+        print("\nERROR - Check if the directory or the link is good.\n")
 
     choice = input("\nDo you wanna continue downloading ? (y/n) -> ")
 

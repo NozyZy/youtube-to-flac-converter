@@ -75,7 +75,8 @@ while not stop:
         path = directories[choice - 1].replace("\n", "")
 
     # new directory
-    directory = input("\nEnter directory location name (empty if in this directory) -> ")
+    directory = input(
+        "\nEnter directory location name (empty if in this directory) -> ")
 
     if directory == "exit":
         quit()
@@ -91,7 +92,8 @@ while not stop:
     song_formats = ["flac", "mp3"]
     while not 0 < choice < len(song_formats) + 1:
         print("Choose music song format :")
-        print("\n".join(str(i + 1) + " -> " + song_formats[i] for i in range(len(song_formats))))
+        print("\n".join(str(i + 1) + " -> " +
+              song_formats[i] for i in range(len(song_formats))))
         choice = int(input("Your choice -> "))
         if not 0 < choice < len(song_formats) + 1:
             print("\nERROR - Enter correct number !\n")
